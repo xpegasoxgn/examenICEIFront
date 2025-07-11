@@ -1,1 +1,48 @@
-<p>crear works!</p>
+<mat-card class="adopcion-card">
+  <mat-card-title>Registrar una nueva adopción</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="guardar()" #form="ngForm" class="adopcion-form">
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Estado</mat-label>
+          <mat-select name="estado" [(ngModel)]="adopcion.estado" required #estado="ngModel">
+            <mat-option value="APROBADA">Aprobada</mat-option>
+            <mat-option value="RECHAZADA">Rechazada</mat-option>
+            <mat-option value="PENDIENTE">Pendiente</mat-option>
+          </mat-select>
+          <mat-error *ngIf="estado.invalid && estado.touched">El estado es obligatorio</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Fecha de solicitud</mat-label>
+          <input matInput type="datetime-local" name="fecha_solicitud" [(ngModel)]="adopcion.fecha_solicitud" required #fechaSolicitud="ngModel" />
+          <mat-error *ngIf="fechaSolicitud.invalid && fechaSolicitud.touched">La fecha de solicitud es obligatoria</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Fecha de resolución</mat-label>
+          <input matInput type="datetime-local" name="fecha_resolucion" [(ngModel)]="adopcion.fecha_resolucion" #fechaResolucion="ngModel" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>ID Mascota</mat-label>
+          <input matInput type="number" name="mascota_id" [(ngModel)]="adopcion.mascota_id" required min="1" #mascotaId="ngModel" />
+          <mat-error *ngIf="mascotaId.invalid && mascotaId.touched">El ID de la mascota es obligatorio y debe ser mayor a 0</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>ID Usuario</mat-label>
+          <input matInput type="number" name="usuario_id" [(ngModel)]="adopcion.usuario_id" required min="1" #usuarioId="ngModel" />
+          <mat-error *ngIf="usuarioId.invalid && usuarioId.touched">El ID del usuario es obligatorio y debe ser mayor a 0</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="botones">
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Guardar</button>
+        <button mat-button type="reset" color="warn">Limpiar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
