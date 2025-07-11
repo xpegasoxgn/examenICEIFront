@@ -15,8 +15,9 @@ import { ButtonModule } from 'primeng/button';
 import { MainLayoutComponent } from './components/layout/main-layout/main-layout/main-layout.component';
 import { TopBarComponent } from './components/layout/top-bar/top-bar/top-bar.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar/sidebar.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 //material
 
@@ -77,13 +78,19 @@ import { EditarMascotaComponent } from './components/pages/crud-mascota/listar/e
   MatDialogModule,
   FormsModule,
   MatSelectModule,
-  MatOptionModule
+  MatOptionModule,
+  BrowserAnimationsModule,
 
 
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     providePrimeNG({
-      theme: { preset: Aura }
+      
     })
   ],
   bootstrap: [AppComponent]
