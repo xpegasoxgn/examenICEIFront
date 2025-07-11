@@ -4,10 +4,12 @@ import { HomeComponent } from './components/pages/home/home/home.component';
 import { CrearComponent } from './components/pages/crud-mascota/crear/crear.component';
 import { ListarComponent } from './components/pages/crud-mascota/listar/listar.component';
 const routes: Routes = [
-   { path:'', redirectTo:'home', pathMatch:'full'}, //principal
+   { path:'', redirectTo:'auth/login', pathMatch:'full'}, //principal
+   {path:'auth', loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)},
    { path: 'home',component:HomeComponent },
    { path:'crud-mascota/crear', component:CrearComponent},
-  { path: 'crud-mascota/listar', component: ListarComponent }
+  { path: 'crud-mascota/listar', component: ListarComponent },
+   {path:'**',redirectTo:'auth/login'},
 
 ];
 
