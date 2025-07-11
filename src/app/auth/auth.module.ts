@@ -25,11 +25,13 @@ import { MessagesModule} from 'primeng/messages';
 import { MessageService} from 'primeng/api';
 import { CardModule} from 'primeng/card';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpClientModule,
