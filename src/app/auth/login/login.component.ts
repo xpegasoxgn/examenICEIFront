@@ -28,6 +28,7 @@ loginForm: FormGroup;
       const credentials=this.loginForm.value;
       this.authService.login(credentials).subscribe({
         next:(res)=>{
+         console.log('Respuesta login backend:', res);
           localStorage.setItem('jwt_token',res.token);
           localStorage.setItem('username',res.username);
           localStorage.setItem('roles',res.roles);
