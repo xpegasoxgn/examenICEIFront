@@ -38,6 +38,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CrearComponent } from './components/pages/crud-mascota/crear/crear.component';
 import { ListarComponent } from './components/pages/crud-mascota/listar/listar.component';
+import { CrearComponent as CrearAdopcionComponent } from './components/pages/crud_adopcion/crear/crear.component';
+import { ListarComponent as ListarAdopcionComponent} from './components/pages/crud_adopcion/listar/listar.component';
 
 
 
@@ -56,6 +58,8 @@ import { EditarMascotaComponent } from './components/pages/crud-mascota/listar/e
     CrearComponent,
     ListarComponent,
     EditarMascotaComponent,
+    CrearAdopcionComponent,
+    ListarAdopcionComponent
   ],
   imports: [
     HttpClientModule,
