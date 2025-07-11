@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Editar Mascota</h2>
+
+<mat-card-content>
+  <form #form="ngForm">
+    <mat-form-field class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre" name="nombre" [(ngModel)]="mascota.nombre" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Raza</mat-label>
+      <input matInput placeholder="Raza" name="raza" [(ngModel)]="mascota.raza" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Edad</mat-label>
+      <input matInput type="number" placeholder="Edad" name="edad" [(ngModel)]="mascota.edad" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Estado</mat-label>
+      <input matInput placeholder="Estado" name="estado" [(ngModel)]="mascota.estado" />
+    </mat-form-field>
+  </form>
+
+  <div class="modal-actions" style="margin-top: 1rem; text-align: right;">
+    <button mat-raised-button color="primary" (click)="close()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+  </div>
+</mat-card-content>

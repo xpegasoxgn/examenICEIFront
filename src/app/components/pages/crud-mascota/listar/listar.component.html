@@ -1,0 +1,45 @@
+<mat-table [dataSource]="mascotas" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let m"> {{ m.id }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let m"> {{ m.nombre }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="raza">
+    <mat-header-cell *matHeaderCellDef> Raza </mat-header-cell>
+    <mat-cell *matCellDef="let m"> {{ m.raza }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="edad">
+    <mat-header-cell *matHeaderCellDef> Edad </mat-header-cell>
+    <mat-cell *matCellDef="let m"> {{ m.edad }} años </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="estado">
+    <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+    <mat-cell *matCellDef="let m"> {{ m.estado }} </mat-cell>
+  </ng-container>
+
+  <!-- ✅ Columna de acciones -->
+  <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let m">
+      <button mat-icon-button color="primary" (click)="abrirModalEditar(m)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="abrirDialogEliminar(m)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Header y rows -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>

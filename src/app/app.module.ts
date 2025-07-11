@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { FormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';  // Importa el preset "Aura"
@@ -35,7 +36,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CrearComponent } from './components/pages/crud-mascota/crear/crear.component';
+import { ListarComponent } from './components/pages/crud-mascota/listar/listar.component';
 
+
+
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { EditarMascotaComponent } from './components/pages/crud-mascota/listar/editar-mascota/editar-mascota.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +53,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     TopBarComponent,
     SidebarComponent,
     HomeComponent,
+    CrearComponent,
+    ListarComponent,
+    EditarMascotaComponent,
   ],
   imports: [
+    HttpClientModule,
   BrowserModule,
   AppRoutingModule,
   ButtonModule,
@@ -61,7 +74,10 @@ import { MatDialogModule } from '@angular/material/dialog';
   MatExpansionModule,
   MatTableModule,
   MatSnackBarModule,
-  MatDialogModule
+  MatDialogModule,
+  FormsModule,
+  MatSelectModule,
+  MatOptionModule
 
 
   ],

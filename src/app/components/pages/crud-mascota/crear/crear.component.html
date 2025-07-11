@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>Registrar una nueva mascota</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="guardar()" #form="ngForm">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput name="nombre" [(ngModel)]="mascota.nombre" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Raza</mat-label>
+        <input matInput name="raza" [(ngModel)]="mascota.raza" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Edad</mat-label>
+        <input matInput type="number" name="edad" [(ngModel)]="mascota.edad" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select name="estado" [(ngModel)]="mascota.estado" required>
+          <mat-option value="DISPONIBLE">Disponible</mat-option>
+          <mat-option value="ADOPTADO">Adoptado</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Foto (URL o nombre de archivo)</mat-label>
+        <input matInput name="foto" [(ngModel)]="mascota.foto" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Guardar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
